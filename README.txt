@@ -25,5 +25,3 @@ Perform integration test:
 ```
 bash ./start.sh && POSTGRES_URL=postgres://postgres:12345@localhost:55432/postgres?sslmode=disable go test -v -tags="integration" -count=1 ./integration_test
 ```
-
-
