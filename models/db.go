@@ -15,5 +15,5 @@ func CreateDBConnection(pgDB *sql.DB) {
 	db = bun.NewDB(pgDB, pgdialect.New())
 
 	// Print all queries to stdout.
-	db.AddQueryHook(bundebug.NewQueryHook(bundebug.WithVerbose(true)))
+	db.AddQueryHook(bundebug.NewQueryHook(bundebug.WithVerbose(false)))
 }

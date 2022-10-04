@@ -23,7 +23,7 @@ func main() {
 	// Open a PostgreSQL database.
 	dsn := utils.GetENV("POSTGRES_URL", "postgres://postgres:12345@db:5432/postgres?sslmode=disable")
 	pgDB := sql.OpenDB(pgdriver.NewConnector(pgdriver.WithDSN(dsn)))
-	pgDB.SetMaxIdleConns(10)
+	pgDB.SetMaxOpenConns(10)
 	models.CreateDBConnection(pgDB)
 
 	handler := handlers.SetupRoutes()

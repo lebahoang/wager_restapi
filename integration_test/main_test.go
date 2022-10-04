@@ -29,11 +29,10 @@ func TestMain(m *testing.M) {
 	// Open a PostgreSQL database.
 	dsn := utils.GetENV("POSTGRES_URL", "postgres://postgres:12345@localhost:55432/postgres?sslmode=disable")
 	pgDB := sql.OpenDB(pgdriver.NewConnector(pgdriver.WithDSN(dsn)))
-	pgDB.SetMaxIdleConns(500)
+	pgDB.SetMaxOpenConns(10)
 	models.CreateDBConnection(pgDB)
 
 	handler := handlers.SetupRoutes()
-
 	testServer = httptest.NewServer(handler)
 	defer testServer.Close()
 	code := m.Run()

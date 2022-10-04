@@ -88,7 +88,6 @@ func TestPlaceWagerValidCase(t *testing.T) {
 	require.Equal(t, int64(60), bodyResp.SellingPercentage)
 	require.Equal(t, float64(80.36), bodyResp.SellingPrice)
 	require.Equal(t, float64(80.36), bodyResp.CurrentSellingPrice)
-	fmt.Println(bodyStr)
 }
 
 func TestListWagersInValid(t *testing.T) {
